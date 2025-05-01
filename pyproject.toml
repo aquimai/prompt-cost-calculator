@@ -1,0 +1,41 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prompt-cost-calculator"
+version = "0.1.0" # Versão inicial da Fase 1
+description = "CLI para estimar custos de input de prompts em LLMs (OpenAI, Anthropic, Google)."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" } # Ou Apache-2.0, etc. Escolha uma licença open source
+authors = [
+  { name = "Seu Nome / Nome da Empresa", email = "seu@email.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License", # Atualize se escolher outra licença
+    "Operating System :: OS Independent",
+    "Topic :: Utilities",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+]
+dependencies = [
+    "click>=8.0",
+    "tiktoken>=0.4",
+    # Adicione 'tomli>=1.1' se suportar Python < 3.11
+    # 'tomli>=1.1; python_version < "3.11"', # Forma correta de especificar dependência condicional
+]
+
+# Define o ponto de entrada para a CLI
+# Isso cria o comando 'prompt-cost-calculator' no sistema quando instalado
+[project.scripts]
+prompt-cost-calculator = "main:cli"
+
+# Configuração opcional para ferramentas (ex: pytest)
+[tool.pytest.ini_options]
+pythonpath = [
+  "." # Permite que pytest encontre os módulos na raiz do projeto
+]
